@@ -1,0 +1,40 @@
+﻿WDOC2
+2015
+Amyotrophic lateral sclerosis
+--
+1. Introduction
+Amyotrophic lateral sclerosis (ALS), also known as Lou Gehrig's disease and Charcot disease, is a specific disorder that involves the death of neurons.[1] In a number of countries the term motor neurone disease (MND) is commonly used,[2] while others use that term for a group of five conditions of which ALS is the most common.[3] ALS is characterized by stiff muscles, muscle twitching, and gradually worsening weakness due to muscle wasting.[4] This results in difficulty speaking, swallowing, and eventually breathing.[4]
+
+The cause is not known in 90% to 95% of cases.[5] About 5–10% of cases are inherited from a person's parents.[6] About half of these genetic cases are due to one of two specific genes. It results in the death of the neurons that control voluntary muscles. The diagnosis is based on a person's signs and symptoms with testing done to rule out other potential causes.[5]
+
+There is no known cure for ALS.[5] A medication called riluzole may extend life expectancy by about two to three months.[7] Non-invasive ventilation may result in both improved quality and length of life.[8] The disease usually starts around the age of 60 and in inherited cases around the age of 50.[6] The average survival from onset to death is three to four years.[9] About 10% survive longer than 10 years.[5] Most die from respiratory failure. In much of the world, rates of ALS are unknown.[6] In Europe and the United States, the disease affects about 2 people per 100,000 per year.[6][10]
+
+Descriptions of the disease date back to at least 1824 by Charles Bell.[11] In 1869, the connection between the symptoms and the underlying neurological problems were first described by Jean-Martin Charcot, who in 1874 began using the term amyotrophic lateral sclerosis.[11] It became well known in the United States in the 20th century when it affected the baseball player Lou Gehrig,[1] and later when Stephen Hawking gained fame for his scientific achievements.[12] In 2014 videos of the ice bucket challenge went viral on the internet and increased public awareness.[13]
+--
+2. Signs and symptoms
+The disorder causes muscle weakness and atrophy throughout the body due to the degeneration of the upper and lower motor neurons. Individuals affected by the disorder may ultimately lose the ability to initiate and control all voluntary movement, although bladder and bowel function and the muscles responsible for eye movement are usually spared until the final stages of the disorder.[14]
+
+Cognitive function is generally spared for most people, although some (about 5%) also develop frontotemporal dementia.[15] A higher proportion of people (30–50%) also have more subtle cognitive changes which may go unnoticed, but are revealed by detailed neuropsychological testing. Sometimes, ALS coexists in individuals who also experience dementia, degenerative muscle disorder, and degenerative bone disorder as part of a syndrome called multisystem proteinopathy.[16] Sensory nerves and the autonomic nervous system are generally unaffected, meaning the majority of people with ALS maintain hearing, sight, touch, smell, and taste.[17]
+--
+3. Genetic Causes
+About 5–10% of cases are directly inherited from a person's parents.[6] Overall, first-degree relatives of an individual with ALS have a 1% risk of developing ALS.[31][32]
+
+A defect on chromosome 21, which codes for superoxide dismutase, is associated with about 20% of familial cases of ALS, or about 2% of ALS cases overall.[33][34][35] This mutation is believed to be transmitted in an autosomal dominant manner, and has over a hundred different forms of mutation. The most common ALS-causing mutation is a mutant SOD1 gene, seen in North America; this is characterized by an exceptionally rapid progression from onset to death. The most common mutation found in Scandinavian countries, D90A-SOD1, is more slowly progressive than typical ALS, and people with this form of the disorder survive for an average of 11 years.[36]
+
+In 2011, a genetic abnormality known as a hexanucleotide repeat was found in a region called C9orf72, which is associated with ALS combined with frontotemporal dementia ALS-FTD,[37] and accounts for some 6% of cases of ALS among white Europeans.[38] The gene is also found in people of Filipino descent.[38]
+
+The UBQLN2 gene encodes production of the protein ubiquilin 2 in the cell, which is a member of the ubiquilin family and controls the degradation of ubiquitinated proteins. Mutations in UBQLN2 interfere with protein degradation, leading to neurodegeneration and causing dominantly inherited, chromosome X-linked ALS and ALS/dementia.[39]
+--
+4. History
+Descriptions of the disease date back to at least 1824 by Charles Bell.[11]
+
+English scientist Augustus Waller described the appearance of shriveled nerve fibers in 1850. In 1869, the connection between the symptoms and the underlying neurological problems were first described by Jean-Martin Charcot, who introduced the term amyotrophic lateral sclerosis in his 1874 paper.[11] In 1881, the article was translated into English and published in a three-volume edition of Lectures on the Diseases of the Nervous System.
+
+ALS became a cause célèbre in the United States in 1939 when baseball legend Lou Gehrig's career, and two years later, his life, were ended by the disease.[97]
+
+In the 1950s, an ALS epidemic occurred among the Chamorro people on Guam.[98]
+
+By 1991, researchers had linked chromosome 21 to familial ALS (FALS). In 1993, the SOD1 gene on chromosome 21 was found to play a role in some cases of FALS. In 1996, riluzole became the first FDA-approved drug for ALS.
+
+In 1998, the El Escorial criteria were developed as the standard for classifying ALS patient in clinical research. The next year, the revised ALS Functional Rating Scale was published and soon becomes a gold standard for rating the declines in ALS patient in clinical research. Noncoding repeat expansions in C9ORF72 were found to be a major cause of ALS and frontotemporal dementia in 2011.
+--

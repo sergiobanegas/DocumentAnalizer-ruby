@@ -1,0 +1,22 @@
+﻿WDOC4
+2015
+Juvenile myoclonic epilepsy
+--
+1. Introduction
+Juvenile myoclonic epilepsy (JME), also known as Janz syndrome, is a fairly common form of idiopathic generalized epilepsy, representing 5-10% of all epilepsy cases. This disorder typically first manifests itself between the ages of 12 and 18 with brief episodes of involuntary muscle twitching occurring early in the morning. Most patients also have generalized seizures that affect the entire brain and many also have absence seizures. Genetic studies have demonstrated at least 6 loci for JME, 4 with known causative genes. Most of these genes are ion channels with the one non-ion channel gene having been shown to affect ion channel currents.
+--
+2. Signs and symptoms
+Signs of JME are brief episodes of involuntary muscle twitching occurring early in the morning or shortly before falling asleep. This does not usually result in the person falling, but rather dropping objects. These muscle twitching episodes are more common in the arms than in the legs. Other seizure types such as generalized tonic-clonic and absence seizures can also occur. Patients often report quick jerking movements in the morning that results in knocking over objects such as their morning orange juice. Clusters of myoclonic seizures can lead to absence seizures, and clusters of absence seizures can lead to generalized tonic-clonic seizures. The onset of symptoms is generally around age 10-16 although some patients can present in their 20s or even early 30s. The myoclonic jerks generally precede the generalized tonic-clonic seizures by several months. Some people with the disorder never get generalized tonic-clonic seizures (GTCs). Sleep deprivation is a major factor in triggering GTCs. College students often present with a GTC after "pulling an all-nighter." Patients with JME generally do not have other neurological problems.
+--
+3. Cause
+Juvenile myoclonic epilepsy is an inherited genetic syndrome, but the way in which this disorder is inherited is unclear. Frequently (17-49%) those with JME have relatives with a history of epileptic seizures. There is also a higher rate of females showing JME symptoms than males.[1] Almost all cases of JME, however, have an onset in early childhood to puberty.
+--
+4. Diagnosis
+Diagnosis is typically made based on patient history. The physical examination should be normal. The primary diagnosis for JME is a good knowledge of patient history and the neurologist's familiarity with the myoclonic jerks, which are the hallmark of the syndrome.[2][3] Additionally, an electroencephalogram (EEG), will indicate a pattern of waves and spikes associated with the syndrome. The EEG generally shows a very characteristic pattern with generalized 3–4 Hz polyspike and slow wave discharges. These discharges are often provoked by photic stimulation (blinking lights) and sometimes hyperventilation. Both a magnetic resonance imaging scan (MRI) and computed tomography scan (CT scan) should appear normal in JME patients.
+-- 
+5. Management
+The most effective anti-epileptic medication for JME is valproic acid (Depakote). Women are often started on alternative medications due to valproic acid's high incidence of fetal malformations. Lamotrigine, levetiracetam, topiramate, and zonisamide are alternative anti-epileptic medications with less frequent incidence of pregnancy related complications, and they are often used first in females of childbearing age. Carbamazepine may aggravate primary generalized seizure disorders such as JME. Treatment is lifelong. Patients should be warned to avoid sleep deprivation.
+--
+6. History
+The first citation of JME was made in 1857 when Théodore Herpin described a 13-year-old boy suffering from myoclonic jerks, which progressed to tonic-clonic seizures three months later.[17] In 1957, Janz and Christian published a journal article describing several patients with JME.[18] The name Juvenile Myoclonic Epilepsy was proposed in 1975 and adopted by the International League Against Epilepsy.[17]
+--
