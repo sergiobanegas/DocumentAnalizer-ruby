@@ -55,18 +55,6 @@ class Document
     end
   end
 
-  def getExpandedForms()
-    expandedForms=[]
-    @acronyms.each() do |acronym|
-      expandedForm=getExpandedForm(acronym)
-      acronymAndExpanded=[]
-      acronymAndExpanded.push(acronym)
-      acronymAndExpanded.push(expandedForm)
-      expandedForms.push(acronymAndExpanded)
-    end
-    return expandedForms
-  end
-
   def getExpandedFromHash(hash)
     expandedForms=[]
     @acronyms.each() do |acronym|

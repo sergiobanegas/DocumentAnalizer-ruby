@@ -56,7 +56,6 @@ class Exercises
     expandedForms=[]
     expandedForm=false
     @documents.each() do |document|
-
       #Con hash
       if document.publishedInYear?(year)
         expandedForms.push("------------------------------------------------")
@@ -66,25 +65,6 @@ class Exercises
         else
           expandedForms.concat(document.getExpandedFromHash(@acronymsHash))
         end
-
-        #sin hash
-        #        expandedForm=true
-        #        expandedForms.push("------------------------------------------------")
-        #        expandedForms.push("- "+document.getTitleAndId)
-        #        if (document.hasNoAcronyms?)
-        #          expandedForms.push("Este artículo no tiene acrónimos")
-        #        else
-        #          documentExpandedForms=document.getExpandedForms
-        #          stringExpandedForms=[]
-        #          for position in 0..documentExpandedForms.length-1
-        #            if (documentExpandedForms[position][1]=="")
-        #              documentExpandedForms[position][1]=findExpandedFormDocuments(documentExpandedForms[position][0])
-        #            end
-        #            stringExpandedForms.push(documentExpandedForms[position][0]+" = "+documentExpandedForms[position][1])
-        #          end
-        #          expandedForms.push(stringExpandedForms)
-        #        end
-
       end
     end
     if (expandedForms)
@@ -192,9 +172,7 @@ class Exercises
     end
     return acronymsHash
   end
-
-  #-------------------------------------------Ejercicio 5----------------------------------------------------------------------
-  #Busca la forma expandida en todos los documentos hasta que la encuentre
+  
   def findExpandedFormDocuments(acronym)
     expandedForm=""
     for document in @documents
@@ -205,6 +183,7 @@ class Exercises
     end
     return expandedForm
   end
+
 
   #----------------------------------------------------------------------------------------------------------------------------
   #-----------------------------------------------------Ejercicio 9 y 10-------------------------------------------------------
