@@ -5,8 +5,9 @@ class Exercises
 
   def initialize (documents)
     @documents = documents
-    @groups = []
-    @wordFunctions=WordFunctions.new
+    @acronymsHash = createAcronymHash()
+    @groups = createGroups()
+    @wordFunctions = WordFunctions.new
   end
 
   def exercise1(year)
@@ -55,26 +56,38 @@ class Exercises
     expandedForms=[]
     expandedForm=false
     @documents.each() do |document|
+
+      #Con hash
       if document.publishedInYear?(year)
-        expandedForm=true
         expandedForms.push("------------------------------------------------")
         expandedForms.push("- "+document.getTitleAndId)
         if (document.hasNoAcronyms?)
           expandedForms.push("Este artículo no tiene acrónimos")
         else
-          documentExpandedForms=document.getExpandedForms
-          stringExpandedForms=[]
-          for position in 0..documentExpandedForms.length-1
-            if (documentExpandedForms[position][1]=="")
-              documentExpandedForms[position][1]=findExpandedFormDocuments(documentExpandedForms[position][0])
-            end
-            stringExpandedForms.push(documentExpandedForms[position][0]+" = "+documentExpandedForms[position][1])
-          end
-          expandedForms.push(stringExpandedForms)
+          expandedForms.concat(document.getExpandedFromHash(@acronymsHash))
         end
+
+        #sin hash
+        #        expandedForm=true
+        #        expandedForms.push("------------------------------------------------")
+        #        expandedForms.push("- "+document.getTitleAndId)
+        #        if (document.hasNoAcronyms?)
+        #          expandedForms.push("Este artículo no tiene acrónimos")
+        #        else
+        #          documentExpandedForms=document.getExpandedForms
+        #          stringExpandedForms=[]
+        #          for position in 0..documentExpandedForms.length-1
+        #            if (documentExpandedForms[position][1]=="")
+        #              documentExpandedForms[position][1]=findExpandedFormDocuments(documentExpandedForms[position][0])
+        #            end
+        #            stringExpandedForms.push(documentExpandedForms[position][0]+" = "+documentExpandedForms[position][1])
+        #          end
+        #          expandedForms.push(stringExpandedForms)
+        #        end
+
       end
     end
-    if (expandedForm)
+    if (expandedForms)
       return expandedForms
     else
       return "No hay ningún documento publicado en #{year}"
@@ -119,16 +132,10 @@ class Exercises
   end
 
   def exercise9()
-    if @groups.length==0
-      createGroups()
-    end
     return @groups
   end
 
   def exercise10()
-    if @groups.length==0
-      createGroups()
-    end
     articlesNumber=0
     rareDiseasesNumber=0
     @documents.each() do |document|
@@ -173,6 +180,19 @@ class Exercises
   #----------------------------------------------------MÉTODOS PRIVADOS--------------------------------------------------------
   private
 
+  def createAcronymHash()
+    acronymsHash=Hash.new()
+    @documents.each() do |document|
+      acronymsHash=acronymsHash.merge(document.getAcronymsHash)
+    end
+    acronymsHash.each() do |acronym|
+      if acronymsHash[acronym]==""
+        acronymsHash[acronym]==findExpandedFormDocuments(acronym)
+      end
+    end
+    return acronymsHash
+  end
+
   #-------------------------------------------Ejercicio 5----------------------------------------------------------------------
   #Busca la forma expandida en todos los documentos hasta que la encuentre
   def findExpandedFormDocuments(acronym)
@@ -189,13 +209,8 @@ class Exercises
   #----------------------------------------------------------------------------------------------------------------------------
   #-----------------------------------------------------Ejercicio 9 y 10-------------------------------------------------------
   def createGroups()
-    allAcronyms=[]
-    for document in @documents
-      allAcronyms=allAcronyms.concat(Array(document.acronyms))
-    end
-    allAcronyms=allAcronyms.uniq()
     acronymAndDocumentsList=[]
-    for acronym in allAcronyms
+    @acronymsHash.each do |acronym, expandedForm|
       documents=[]
       for document in @documents
         if document.containsAcronym?(acronym)

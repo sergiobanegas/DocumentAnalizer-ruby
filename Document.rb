@@ -9,7 +9,11 @@ class Document
     @lcs = LCS.new
   end
 
-  attr_reader :id, :year, :title, :sections, :acronyms
+  attr_reader :id, :year, :title, :sections
+
+  def getAcronymsHash()
+    return Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
+  end
 
   def getIdAndTitle()
     return "Id: #{@id}, title: #{@title}"
@@ -59,6 +63,14 @@ class Document
       acronymAndExpanded.push(acronym)
       acronymAndExpanded.push(expandedForm)
       expandedForms.push(acronymAndExpanded)
+    end
+    return expandedForms
+  end
+
+  def getExpandedFromHash(hash)
+    expandedForms=[]
+    @acronyms.each() do |acronym|
+      expandedForms.push(acronym+" = "+hash[acronym]);
     end
     return expandedForms
   end

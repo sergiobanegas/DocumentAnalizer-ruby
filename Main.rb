@@ -16,9 +16,12 @@ module Main
     puts "8- Dado un acrónimo, mostrar información de todos los documentos que aparezcan en el acrónimo."
     puts "9- Tratar de agrupar los documentos que se refieran a la misma enfermedad o a la misma temática."
     puts "10- Calcular ciertas estadísticas relacionadas con los grupos de documentos similares."
+    puts "0- Salir del menú"
     puts "------------------------------------------------------------------------------------------------------------------"
     answer=(gets.chomp).to_i
     case answer
+    when 0
+      puts "¡Hasta pronto!"
     when 1
       puts "Por favor, introduce el año: "
       year=gets.chomp
@@ -82,8 +85,6 @@ module Main
     when 10
       puts "------------------------------------------------------------------------------------------------------------------"
       puts e.exercise10()
-    when 0
-      puts "¡Hasta pronto!"
     else
       puts "Introduce un número válido"
     end
