@@ -1,25 +1,25 @@
 class GetDocuments
   require 'Article'
-  require 'RareDisease'
-  require 'WordFunctions'
+  require 'WikiDocument'
+  require 'Functions'
 
   def initialize
     @articleList = []
-    @rareDiseasesList = []
+    @wikiDocumentsList = []
     readFiles
     formatArticles
-    formatRareDiseases
+    formatWikiDocuments
   end
 
   def getDocuments
-    @articleList+@rareDiseasesList
+    @articleList+@wikiDocumentsList
   end
 
   private
 
   def readFiles
-    articleList = Array.new
-    rareDiseasesList = Array.new
+    articleList = []
+    wikiDocumentsList = []
     if !Dir.exist?('docsUTF8')
       abort("El directorio 'docsUTF8' no existe")
     end
@@ -31,17 +31,17 @@ class GetDocuments
       f.each_line do |line|
         contents.push(line.chomp)
       end
-      w = WordFunctions.new()
+      w = Functions.new
       if (w.is_integer?(contents[1]))&&(w.is_integer?(contents[2]))
         articleList.push(contents)
       else
-        rareDiseasesList.push(contents)
+        wikiDocumentsList.push(contents)
       end
-      @rareDiseasesList=rareDiseasesList
+      @wikiDocumentsList=wikiDocumentsList
       @articleList=articleList
       f.close
     end
-    if (@rareDiseasesList.length==0 && @articleList.length==0)
+    if (@wikiDocumentsList.length==0 && @articleList.length==0)
       abort("No hay ningún documento sobre enfermedades raras en el directorio 'docsUTF8'")
     end
   end
@@ -71,11 +71,11 @@ class GetDocuments
     @articleList=articles
   end
 
-  def formatRareDiseases
-    rareDiseases=Array.new
-    @rareDiseasesList.each do |disease|
-      sectionsLines=disease[4, (disease.length-4)]
-      sections=Array.new
+  def formatWikiDocuments
+    wikiDocuments=[]
+    @wikiDocumentsList.each do |lines|
+      sectionsLines=lines[4, (lines.length-4)]
+      sections=[]
       i=-1
       section=""
       while (i<(sectionsLines.length-1)) do
@@ -91,10 +91,9 @@ class GetDocuments
           end
         end
       end
-      newDisease = RareDisease.new(disease[0], disease[1], disease[2],sections)
-      rareDiseases.push(newDisease)
+      wikiDocuments.push(WikiDocument.new(lines[0], lines[1], lines[2], sections))
     end
-    @rareDiseasesList=rareDiseases
+    @wikiDocumentsList=wikiDocuments
   end
 
 end

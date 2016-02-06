@@ -1,15 +1,19 @@
 class Document
-  require 'WordFunctions'
+  require 'Functions'
   require 'LCS'
 
   def initialize (id, year, title, sections)
     @id, @year, @title, @sections= id, year, title, sections
-    @wordFunctions=WordFunctions.new
+    @functions=Functions.new
     @acronyms=acronymList
     @lcs = LCS.new
   end
 
-  attr_reader :id, :year, :title, :sections
+  attr_reader :year, :title, :sections
+
+  def <=>(document)
+    @title <=> document.title
+  end
 
   def getAcronymsHash
     Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
@@ -24,7 +28,7 @@ class Document
   end
 
   def isArticle?
-    @wordFunctions.is_integer?(@id)
+    @functions.is_integer?(@id)
   end
 
   def publishedInYear?(year)
@@ -103,7 +107,7 @@ class Document
 
             if (((possibleExpandedForm[wordNumber].include? ".")||(possibleExpandedForm[wordNumber].include? ",")) &&(expandedFormList.length==0))
               wordNumber+=1
-            elsif (expandedFormList.length==0)&&(wordNumber==possibleExpandedForm.length-1)&&(possibleExpandedForm[wordNumber].chr.upcase==acronym.chr.upcase)&&(!@wordFunctions.isInvalidWord?(possibleExpandedForm[wordNumber]))
+            elsif (expandedFormList.length==0)&&(wordNumber==possibleExpandedForm.length-1)&&(possibleExpandedForm[wordNumber].chr.upcase==acronym.chr.upcase)&&(!@functions.isInvalidWord?(possibleExpandedForm[wordNumber]))
               valid=true
               for letter in 0..acronym.length-1
                 if (!(possibleExpandedForm[wordNumber].upcase.include? acronym[letter].chr))
@@ -115,15 +119,15 @@ class Document
                 added=true
               end
               wordNumber+=1
-            elsif (@lcs.similars(@wordFunctions.firstLetters((expandedFormList+possibleExpandedForm[wordNumber, possibleExpandedForm.length]), acronym), acronym, 50))
+            elsif (@lcs.similars(@functions.firstLetters((expandedFormList+possibleExpandedForm[wordNumber, possibleExpandedForm.length]), acronym), acronym, 50))
               if (acronymPosition==0)
-                if ((possibleExpandedForm[wordNumber].chr.upcase==acronym[acronymPosition].chr.upcase))&&(!@wordFunctions.isInvalidWord?(possibleExpandedForm[wordNumber]))
+                if ((possibleExpandedForm[wordNumber].chr.upcase==acronym[acronymPosition].chr.upcase))&&(!@functions.isInvalidWord?(possibleExpandedForm[wordNumber]))
                   expandedFormList.push(possibleExpandedForm[wordNumber])
                   added=true
                   if (possibleExpandedForm[wordNumber].include? "-")
                     composedWord=Array.new
                     composedWord.push(possibleExpandedForm[wordNumber])
-                    wordNumber=+(@wordFunctions.firstLetters(composedWord, acronym)).length
+                    wordNumber=+(@functions.firstLetters(composedWord, acronym)).length
                   else
                     wordNumber+=1
                   end
@@ -131,7 +135,7 @@ class Document
                   wordNumber+=1
                 end
               else
-                if (acronymPosition==acronym.length-1)&&(@wordFunctions.isInvalidWord?(possibleExpandedForm[wordNumber]))
+                if (acronymPosition==acronym.length-1)&&(@functions.isInvalidWord?(possibleExpandedForm[wordNumber]))
                   wordNumber+=1
                 else
                   expandedFormList.push(possibleExpandedForm[wordNumber])
@@ -139,7 +143,7 @@ class Document
                   if (possibleExpandedForm[wordNumber].include? "-")
                     composedWord=Array.new
                     composedWord.push(possibleExpandedForm[wordNumber])
-                    wordNumber+=(@wordFunctions.firstLetters(composedWord, acronym)).length
+                    wordNumber+=(@functions.firstLetters(composedWord, acronym)).length
                   else
                     wordNumber+=1
                   end
@@ -191,11 +195,12 @@ class Document
         if word[word.length-1]==","||word[word.length-1]=="."||word[word.length-1]=="]"||word[word.length-1]==":"||word[word.length-1]==";"
           word=word[0..word.length-2]
         end
-        if (word[0].chr=="(")&&(@wordFunctions.isAcronym?(word))&&(word[word.length-1].chr==")")
+        if (word[0].chr=="(")&&(@functions.isAcronym?(word))&&(word[word.length-1].chr==")")
           acronyms.push(word.gsub(/[().;,]/, '') )
         end
       end
     end
     return acronyms.uniq
   end
+  
 end

@@ -13,7 +13,7 @@ class Article < Document
   end
 
   def to_s
-    toString=super()+"Abstract: #{abstract(sections[0])}\nSection number: #{(sections.length-1).to_s}\nSections:\n"
+    toString=super+"Abstract: #{abstract(sections[0])}\nSection number: #{(sections.length-1).to_s}\nSections:\n"
     for section in (sections.drop(1))
       toString+=(section.split("\n")[0])+"\n"
     end

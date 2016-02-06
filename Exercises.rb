@@ -1,13 +1,12 @@
 class Exercises
-  require 'WordFunctions'
-  require 'LCS'
   require 'Cluster'
+  require 'Functions'
 
   def initialize (documents)
     @documents = documents
+    @functions = Functions.new
     @acronymsHash = createAcronymHash
     @groups = createGroups
-    @wordFunctions = WordFunctions.new
   end
 
   def exercise1(year)
@@ -27,7 +26,7 @@ class Exercises
         magazines.push(document.magazine)
       end
     end
-    return magazines.uniq
+    return magazines.uniq.sort
   end
 
   def exercise3(acronym)
@@ -37,7 +36,7 @@ class Exercises
         titles.push(document.title)
       end
     end
-    return titles
+    return titles.sort
   end
 
   def exercise4(magazine, acronym)
@@ -49,7 +48,7 @@ class Exercises
         end
       end
     end
-    return titles
+    return titles.sort
   end
 
   def exercise5(year)
@@ -107,7 +106,7 @@ class Exercises
         documents.push(document)
       end
     end
-    return documents
+    return documents.sort
   end
 
   def exercise9
@@ -201,22 +200,13 @@ class Exercises
     groups.sort!
     uncategorizedDocuments=[]
     @documents.each do |document|
-      if (!clustersIncludeDocument(groups, document))
+      if (!@functions.clustersIncludeDocument(groups, document))
         uncategorizedDocuments.push(document)
       end
     end
     otherCategory=Cluster.new("Other category", uncategorizedDocuments)
     groups.push(otherCategory)
     @groups=groups
-  end
-
-  def clustersIncludeDocument(clusters, document)
-    for cluster in clusters
-      if cluster.hasDocument?(document)
-        return true
-      end
-    end
-    return false
   end
 
 end

@@ -1,9 +1,11 @@
-require 'Document.rb'
+require 'Document'
+require 'Functions'
 
 class Cluster
   include Comparable
   def initialize (title, documents)
     @title, @documents = title, documents
+    @functions=Functions.new
   end
 
   attr_accessor :title, :documents
@@ -27,22 +29,13 @@ class Cluster
   def deleteCategorized(groups, clusters)
     validDocuments=[]
     @documents.each do |document|
-      if clustersIncludeDocument(groups,document)
+      if @functions.clustersIncludeDocument(groups,document)
         removeDocument(document)
       else
         validDocuments.push(document)
       end
     end
     return validDocuments
-  end
-
-  def clustersIncludeDocument(clusters, document)
-    for cluster in clusters
-      if cluster.hasDocument?(document)
-        return true
-      end
-    end
-    return false
   end
 
   def sameYearDocuments?
