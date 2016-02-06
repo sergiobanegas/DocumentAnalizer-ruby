@@ -1,7 +1,7 @@
 require 'Document.rb'
 
 class Cluster
-  include Comparable  # optional, but might as well
+  include Comparable
   def initialize (title, documents)
     @title, @documents = title, documents
   end
@@ -13,7 +13,7 @@ class Cluster
   end
 
   def hasDocument?(document)
-    return (@documents.include? document)
+    @documents.include? document
   end
 
   def removeDocument(document)
@@ -21,7 +21,28 @@ class Cluster
   end
 
   def numberOfDocuments()
-    return @documents.length
+    @documents.length
+  end
+
+  def deleteCategorized(groups, clusters)
+    validDocuments=[]
+    @documents.each do |document|
+      if clustersIncludeDocument(groups,document)
+        removeDocument(document)
+      else
+        validDocuments.push(document)
+      end
+    end
+    return validDocuments
+  end
+
+  def clustersIncludeDocument(clusters, document)
+    for cluster in clusters
+      if cluster.hasDocument?(document)
+        return true
+      end
+    end
+    return false
   end
 
   def to_s

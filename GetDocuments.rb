@@ -12,7 +12,7 @@ class GetDocuments
   end
 
   def getDocuments()
-    return @articleList+@rareDiseasesList
+    @articleList+@rareDiseasesList
   end
 
   private

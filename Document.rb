@@ -12,47 +12,31 @@ class Document
   attr_reader :id, :year, :title, :sections
 
   def getAcronymsHash()
-    return Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
+    Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
   end
 
   def getIdAndTitle()
-    return "Id: #{@id}, title: #{@title}"
+    "Id: #{@id}, title: #{@title}"
   end
 
   def getTitleAndId()
-    return "#{@title} - #{@id}"
+    "#{@title} - #{@id}"
   end
 
   def isArticle?
-    if (@wordFunctions.is_integer?(@id))
-      return true
-    else
-      return false
-    end
+    @wordFunctions.is_integer?(@id)
   end
 
   def publishedInYear?(year)
-    if (@year==year)
-      return true
-    else
-      return false
-    end
+    @year==year
   end
 
   def hasId?(id)
-    if (@id.include? id)
-      return true
-    else
-      return false
-    end
+    @id.include? id
   end
 
   def containsAcronym?(acronym)
-    if (Array(@acronyms)).include? acronym
-      return true
-    else
-      return false
-    end
+    (Array(@acronyms)).include? acronym
   end
 
   def getExpandedFromHash(hash)
@@ -73,16 +57,11 @@ class Document
   end
 
   def hasNoAcronyms?()
-    if @acronyms.length==0
-      return true
-    else
-      return false
-    end
+    @acronyms.length==0
   end
 
   def to_s()
-    toString="--------------------------------------\nTitle: #{@title} (#{@year})\n"
-    return toString
+    "--------------------------------------\nTitle: #{@title} (#{@year})\n"
   end
 
   def getExpandedForm(acronym)

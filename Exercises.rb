@@ -27,7 +27,7 @@ class Exercises
         magazines.push(document.magazine)
       end
     end
-    return (magazines.uniq!())
+    return magazines.uniq!
   end
 
   def exercise3(acronym)
@@ -44,7 +44,7 @@ class Exercises
     titles=[]
     @documents.each() do |document|
       if (document.isArticle?)
-        if (document.magazine.upcase.include? magazine)&&(document.containsAcronym?(acronym))
+        if (document.publishedInMagazine?(magazine))&&(document.containsAcronym?(acronym))
           titles.push(document.title)
         end
       end
@@ -165,25 +165,25 @@ class Exercises
     @documents.each() do |document|
       acronymsHash=acronymsHash.merge(document.getAcronymsHash)
     end
-    acronymsHash.each() do |acronym|
-      if acronymsHash[acronym]==""
-        acronymsHash[acronym]==findExpandedFormDocuments(acronym)
+    acronymsHash.each() do |acronym, expanded|
+      if expanded==""
+        acronymsHash[acronym]=findExpandedFormDocuments(acronym)
       end
     end
     return acronymsHash
   end
-  
+
   def findExpandedFormDocuments(acronym)
     expandedForm=""
     for document in @documents
       expanded=document.getExpandedForm(acronym)
       if expanded.length>1
         expandedForm=expanded
+        break
       end
     end
     return expandedForm
   end
-
 
   #----------------------------------------------------------------------------------------------------------------------------
   #-----------------------------------------------------Ejercicio 9 y 10-------------------------------------------------------
@@ -204,13 +204,7 @@ class Exercises
     groups=[]
     for cluster in acronymAndDocumentsList
       validDocuments=[]
-      for document in cluster.documents
-        if clustersIncludeDocument(groups,document)
-          cluster.removeDocument(document)
-        else
-          validDocuments.push(document)
-        end
-      end
+      validDocuments=cluster.deleteCategorized(groups, acronymAndDocumentsList)
       if validDocuments.length>1
         groups.push(Cluster.new(cluster.title, validDocuments))
       end
@@ -227,7 +221,6 @@ class Exercises
     @groups=groups
   end
 
-  #Dada una id de un documento, devuelve true si se encuentra en una categoría
   def clustersIncludeDocument(clusters, document)
     for cluster in clusters
       if cluster.hasDocument?(document)
@@ -235,15 +228,6 @@ class Exercises
       end
     end
     return false
-  end
-
-  #devuelve el número de documentos categorizados
-  def categorizedDocumentNumber(clusters)
-    number=0
-    for cluster in clusters
-      number+=cluster.numberOfDocuments
-    end
-    return number
   end
 
 end

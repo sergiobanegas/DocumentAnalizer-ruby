@@ -8,6 +8,10 @@ class Article < Document
 
   attr_reader :magazine
 
+  def publishedInMagazine?(magazine)
+    @magazine.upcase.include? magazine
+  end
+
   def to_s
     toString=super()+"Abstract: #{abstract(sections[0])}\nSection number: #{(sections.length-1).to_s}\nSections:\n"
     for section in (sections.drop(1))

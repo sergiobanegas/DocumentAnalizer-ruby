@@ -10,19 +10,11 @@ class WordFunctions
     if acronym[acronym.length-1].chr.gsub(/[.,:;()]/, '').length==0
       acronym=acronym[0..acronym.length-2]
     end
-    if (numberAndLetters?(acronym))&&(acronym==acronym.upcase)&&(!isRomanNumeral?(acronym))&&(!is_integer?(acronym))&&(acronym.length()>1)&&(!((acronym.length==2)&&((is_integer?(acronym[0]))||(is_integer?(acronym[1])))))
-      return true
-    else
-      return false
-    end
+    return (numberAndLetters?(acronym))&&(acronym==acronym.upcase)&&(!isRomanNumeral?(acronym))&&(!is_integer?(acronym))&&(acronym.length()>1)&&(!((acronym.length==2)&&((is_integer?(acronym[0]))||(is_integer?(acronym[1])))))
   end
 
   def isInvalidWord? (word)
-    if (word=="and")||(word=="for")||(word=="of")||(word.include? "(")||(word.include? ")")||(word == "and")||(word=="as")||(word=="such")
-      return true
-    else
-      return false
-    end
+    (word=="and")||(word=="for")||(word=="of")||(word.include? "(")||(word.include? ")")||(word == "and")||(word=="as")||(word=="such")
   end
 
   def firstLetters (words, acronym)
@@ -81,11 +73,7 @@ class WordFunctions
         end
       end
     end
-    if number==acronym.length
-      return true
-    else
-      return false
-    end
+    return number==acronym.length
   end
 
   def letter?(lookAhead)
@@ -99,20 +87,12 @@ class WordFunctions
         number+=1
       end
     end
-    if (number==word.length)
-      return true
-    else
-      return false
-    end
+    return number==word.length
   end
 
   def invalidChar?(char)
-    return char.gsub(/[().;,:%º?]/, '')
-    if (char=="(")||(char==")")||(char==",")||(char==".")||(char==":")||(char==";")||(char=="%")||(char==";")
-      return true
-    else
-      return false
-    end
+    char.gsub(/[().;,:%º?]/, '')
+    return (char=="(")||(char==")")||(char==",")||(char==".")||(char==":")||(char==";")||(char=="%")||(char==";")
   end
 
   def isRomanNumeral? (word)
@@ -123,11 +103,7 @@ class WordFunctions
         number+=1
       end
     end
-    if (number==word.length)
-      return true
-    else
-      return false
-    end
+    return number==word.length
   end
 
 end
