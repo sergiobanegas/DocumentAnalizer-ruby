@@ -20,7 +20,7 @@ class Cluster
     @documents.delete(document)
   end
 
-  def numberOfDocuments()
+  def numberOfDocuments
     @documents.length
   end
 
@@ -43,6 +43,21 @@ class Cluster
       end
     end
     return false
+  end
+
+  def sameYearDocuments?
+    sameYear=true
+    year=@documents[0].year
+    for document in @documents
+      if (!document.publishedInYear?(year))
+        sameYear=false
+      end
+    end
+    return sameYear
+  end
+
+  def aSingleDocument?
+    return @documents.length==1
   end
 
   def to_s

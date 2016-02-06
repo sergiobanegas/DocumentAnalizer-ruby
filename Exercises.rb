@@ -5,14 +5,14 @@ class Exercises
 
   def initialize (documents)
     @documents = documents
-    @acronymsHash = createAcronymHash()
-    @groups = createGroups()
+    @acronymsHash = createAcronymHash
+    @groups = createGroups
     @wordFunctions = WordFunctions.new
   end
 
   def exercise1(year)
     titles=[]
-    @documents.each() do |document|
+    @documents.each do |document|
       if document.publishedInYear?(year)
         titles.push(document.title)
       end
@@ -20,19 +20,19 @@ class Exercises
     return titles.sort!
   end
 
-  def exercise2()
+  def exercise2
     magazines=[]
-    @documents.each() do |document|
-      if (document.isArticle?)
+    @documents.each do |document|
+      if document.isArticle?
         magazines.push(document.magazine)
       end
     end
-    return magazines.uniq!
+    return magazines.uniq
   end
 
   def exercise3(acronym)
     titles=[]
-    @documents.each() do |document|
+    @documents.each do |document|
       if document.containsAcronym?(acronym)
         titles.push(document.title)
       end
@@ -42,8 +42,8 @@ class Exercises
 
   def exercise4(magazine, acronym)
     titles=[]
-    @documents.each() do |document|
-      if (document.isArticle?)
+    @documents.each do |document|
+      if document.isArticle?
         if (document.publishedInMagazine?(magazine))&&(document.containsAcronym?(acronym))
           titles.push(document.title)
         end
@@ -55,12 +55,11 @@ class Exercises
   def exercise5(year)
     expandedForms=[]
     expandedForm=false
-    @documents.each() do |document|
-      #Con hash
+    @documents.each do |document|
       if document.publishedInYear?(year)
         expandedForms.push("------------------------------------------------")
         expandedForms.push("- "+document.getTitleAndId)
-        if (document.hasNoAcronyms?)
+        if document.hasNoAcronyms?
           expandedForms.push("Este artículo no tiene acrónimos")
         else
           expandedForms.concat(document.getExpandedFromHash(@acronymsHash))
@@ -77,8 +76,8 @@ class Exercises
   def exercise6(id)
     acronymsAndTimes=[]
     exists=false
-    @documents.each() do |document|
-      if (document.hasId?(id))
+    @documents.each do |document|
+      if document.hasId?(id)
         exists=true
         acronymsAndTimes=document.getAcronymAndTimesRepeated
         break
@@ -91,9 +90,9 @@ class Exercises
     end
   end
 
-  def exercise7()
+  def exercise7
     documentsWithoutAcronyms=[]
-    @documents.each() do |document|
+    @documents.each do |document|
       if document.hasNoAcronyms?
         documentsWithoutAcronyms.push(document.getTitleAndId)
       end
@@ -103,22 +102,22 @@ class Exercises
 
   def exercise8(acronym)
     documents=[]
-    @documents.each() do |document|
-      if (document.containsAcronym?(acronym))
+    @documents.each do |document|
+      if document.containsAcronym?(acronym)
         documents.push(document)
       end
     end
     return documents
   end
 
-  def exercise9()
-    return @groups
+  def exercise9
+    @groups
   end
 
-  def exercise10()
+  def exercise10
     articlesNumber=0
     rareDiseasesNumber=0
-    @documents.each() do |document|
+    @documents.each do |document|
       if document.isArticle?
         articlesNumber+=1
       else
@@ -130,18 +129,12 @@ class Exercises
     averageDiseasesPerGroup=rareDiseasesNumber/@groups.length
     sameYearNumber=0
     oneDocumentNumber=0
-    @groups.each() do |group|
-      sameYear=true
-      year=group.documents[0].year
-      group.documents.each() do |document|
-        if (!document.publishedInYear?(year))
-          sameYear=false
-        end
-      end
+    @groups.each do |group|
+      sameYear=group.sameYearDocuments?
       if (sameYear)
         sameYearNumber+=1
       end
-      if group.numberOfDocuments==1
+      if group.aSingleDocument?
         oneDocumentNumber+=1
       end
     end
@@ -156,16 +149,14 @@ class Exercises
     return statistics
   end
 
-  #----------------------------------------------------------------------------------------------------------------------------
-  #----------------------------------------------------MÉTODOS PRIVADOS--------------------------------------------------------
   private
 
-  def createAcronymHash()
-    acronymsHash=Hash.new()
-    @documents.each() do |document|
+  def createAcronymHash
+    acronymsHash=Hash.new
+    @documents.each do |document|
       acronymsHash=acronymsHash.merge(document.getAcronymsHash)
     end
-    acronymsHash.each() do |acronym, expanded|
+    acronymsHash.each do |acronym, expanded|
       if expanded==""
         acronymsHash[acronym]=findExpandedFormDocuments(acronym)
       end
@@ -185,13 +176,11 @@ class Exercises
     return expandedForm
   end
 
-  #----------------------------------------------------------------------------------------------------------------------------
-  #-----------------------------------------------------Ejercicio 9 y 10-------------------------------------------------------
-  def createGroups()
+  def createGroups
     acronymAndDocumentsList=[]
     @acronymsHash.each do |acronym, expandedForm|
       documents=[]
-      for document in @documents
+      @documents.each do |document|
         if document.containsAcronym?(acronym)
           documents.push(document)
         end
@@ -200,9 +189,9 @@ class Exercises
         acronymAndDocumentsList.push(Cluster.new(acronym, documents))
       end
     end
-    acronymAndDocumentsList.sort!#acronimos y documentos en los que se repiten
+    acronymAndDocumentsList.sort!
     groups=[]
-    for cluster in acronymAndDocumentsList
+    acronymAndDocumentsList.each do |cluster|
       validDocuments=[]
       validDocuments=cluster.deleteCategorized(groups, acronymAndDocumentsList)
       if validDocuments.length>1
@@ -211,7 +200,7 @@ class Exercises
     end
     groups.sort!
     uncategorizedDocuments=[]
-    for document in @documents
+    @documents.each do |document|
       if (!clustersIncludeDocument(groups, document))
         uncategorizedDocuments.push(document)
       end

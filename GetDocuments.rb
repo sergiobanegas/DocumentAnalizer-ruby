@@ -3,21 +3,21 @@ class GetDocuments
   require 'RareDisease'
   require 'WordFunctions'
 
-  def initialize()
-    @articleList = Array.new
-    @rareDiseasesList = Array.new
-    readFiles()
-    formatArticles()
-    formatRareDiseases()
+  def initialize
+    @articleList = []
+    @rareDiseasesList = []
+    readFiles
+    formatArticles
+    formatRareDiseases
   end
 
-  def getDocuments()
+  def getDocuments
     @articleList+@rareDiseasesList
   end
 
   private
 
-  def readFiles()
+  def readFiles
     articleList = Array.new
     rareDiseasesList = Array.new
     if !Dir.exist?('docsUTF8')
@@ -46,7 +46,7 @@ class GetDocuments
     end
   end
 
-  def formatArticles()
+  def formatArticles
     articles=Array.new
     @articleList.each do |article|
       sectionsLines=article[6, (article.length-5)]
@@ -71,7 +71,7 @@ class GetDocuments
     @articleList=articles
   end
 
-  def formatRareDiseases()
+  def formatRareDiseases
     rareDiseases=Array.new
     @rareDiseasesList.each do |disease|
       sectionsLines=disease[4, (disease.length-4)]

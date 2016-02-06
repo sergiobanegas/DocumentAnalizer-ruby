@@ -1,5 +1,5 @@
 class WordFunctions
-  def initialize()
+  def initialize
   end
 
   def isAcronym?(acronym)

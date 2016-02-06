@@ -5,21 +5,21 @@ class Document
   def initialize (id, year, title, sections)
     @id, @year, @title, @sections= id, year, title, sections
     @wordFunctions=WordFunctions.new
-    @acronyms=acronymList()
+    @acronyms=acronymList
     @lcs = LCS.new
   end
 
   attr_reader :id, :year, :title, :sections
 
-  def getAcronymsHash()
+  def getAcronymsHash
     Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
   end
 
-  def getIdAndTitle()
+  def getIdAndTitle
     "Id: #{@id}, title: #{@title}"
   end
 
-  def getTitleAndId()
+  def getTitleAndId
     "#{@title} - #{@id}"
   end
 
@@ -41,13 +41,13 @@ class Document
 
   def getExpandedFromHash(hash)
     expandedForms=[]
-    @acronyms.each() do |acronym|
+    @acronyms.each do |acronym|
       expandedForms.push(acronym+" = "+hash[acronym]);
     end
     return expandedForms
   end
 
-  def getAcronymAndTimesRepeated()
+  def getAcronymAndTimesRepeated
     acronymsAndTimes=[]
     exists=true
     for acronym in @acronyms
@@ -56,11 +56,11 @@ class Document
     return acronymsAndTimes
   end
 
-  def hasNoAcronyms?()
+  def hasNoAcronyms?
     @acronyms.length==0
   end
 
-  def to_s()
+  def to_s
     "--------------------------------------\nTitle: #{@title} (#{@year})\n"
   end
 
@@ -183,7 +183,7 @@ class Document
     return text
   end
 
-  def acronymList()
+  def acronymList
     acronyms = Array.new
     for section in @sections
       words = section.split(" ")
@@ -196,6 +196,6 @@ class Document
         end
       end
     end
-    return acronyms.uniq()
+    return acronyms.uniq
   end
 end

@@ -1,8 +1,8 @@
 module Main
   require 'GetDocuments'
   require 'Exercises'
-  d = GetDocuments.new()
-  e = Exercises.new(d.getDocuments())
+  d = GetDocuments.new
+  e = Exercises.new(d.getDocuments)
   answer=-1
   while (answer!=0)
     puts "------------------------------------------------------------------------------------------------------------------"
@@ -34,7 +34,7 @@ module Main
       end
     when 2
       puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise2()
+      puts e.exercise2
     when 3
       puts "Por favor, introduce un acrónimo"
       acronym=gets.upcase.chomp
@@ -68,7 +68,7 @@ module Main
       puts "------------------------------------------------------------------------------------------------------------------"
       puts e.exercise6(id)
     when 7
-      puts e.exercise7()
+      puts e.exercise7
     when 8
       puts "Por favor, introduce un acrónimo"
       acronym=gets.upcase.chomp
@@ -81,10 +81,10 @@ module Main
       end
     when 9
       puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise9()
+      puts e.exercise9
     when 10
       puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise10()
+      puts e.exercise10
     else
       puts "Introduce un número válido"
     end
