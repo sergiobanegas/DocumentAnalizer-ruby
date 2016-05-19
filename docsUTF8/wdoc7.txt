@@ -1,0 +1,39 @@
+﻿WDOC7
+2015
+Spinal muscular atrophy
+--
+1. Introduction
+Proximal spinal muscular atrophy (SMA) is an autosomal recessive disease caused by a genetic defect in the SMN1 gene, which encodes SMN, a protein widely expressed in all eukaryotic cells. SMN is apparently selectively necessary for survival of motor neurons, as diminished abundance of the protein results in loss of function of neuronal cells in the anterior horn of the spinal cord and subsequent system-wide muscle wasting (atrophy).
+
+Spinal muscular atrophy manifests in various degrees of severity, which all have in common progressive muscle wasting and mobility impairment. Proximal muscles and lung muscles are affected first. Other body systems may be affected as well, particularly in early-onset forms.
+
+SMA is the most common genetic cause of infant death.
+
+The term spinal muscular atrophy is used as both a specific term for the genetic disorder caused by deficient SMN, and a general label for a larger number of rare disorders having in common a genetic cause and slow progression of weakness without sensory impairment caused by disease of motor neurons in the spinal cord and brainstem – see spinal muscular atrophies for a comparison chart.
+--
+2. Causes
+Spinal muscular atrophy is linked to a genetic mutation in the SMN1 gene.[1]
+
+Human chromosome 5 contains two nearly identical genes at location 5q13: a telomeric copy SMN1 and a centromeric copy SMN2. In healthy individuals, the SMN1 gene codes the survival of motor neuron protein (SMN) which, as its name says, plays a crucial role in survival of motor neurons. The SMN2 gene, on the other hand - due to a variation in a single nucleotide (840.C→T) - undergoes alternative splicing at the junction of intron 6 to exon 8, with only 10-20% of SMN2 transcripts coding a fully functional survival of motor neuron protein (SMN-fl) and 80-90% of transcripts resulting in a truncated protein compound (SMNΔ7) which is rapidly degraded in the cell.
+
+In individuals affected by SMA, the SMN1 gene is mutated in such a way that it is unable to correctly code the SMN protein - due to either a deletion occurring at exon 7 or to other point mutations (frequently resulting in the functional conversion of the SMN1 sequence into SMN2). All patients, however, retain at least one copy of the SMN2 gene (with most having 2-4 of them) which still codes small amounts of SMN protein - around 10-20% of the normal level - allowing some neurons to survive. In the long run, however, reduced availability of the SMN protein results in gradual death of motor neuron cells in the anterior horn of spinal cord and the brain. Muscles that depend on these motor neurons for neural input now have decreased innervation (also called denervation), and therefore have decreased input from the central nervous system (CNS). Denervated skeletal muscle is more difficult for the body to control. Decreased impulse transmission through the motor neurons leads to decreased contractile activity of the denervated muscle. Consequently, denervated muscles undergo progressive atrophy.
+
+Muscles of lower extremities are usually affected first, followed by muscles of upper extremities, spine and neck and, in more severe cases, pulmonary and mastication muscles. Proximal muscles are always affected earlier and to a greater degree than distal.
+
+The severity of SMA symptoms is broadly related to how well the remaining SMN2 genes can make up for the loss of SMN1. This is partly related to the number of SMN2 gene copies present on the chromosome. Whilst healthy individuals carry two SMN2 gene copies, patients with SMA can have anything between 1 and 4 (or more) of them, with the greater the number of SMN2 copies, the milder the disease severity. Thus, most SMA type I babies have one or two SMN2 copies; SMA II and III patients usually have at least three SMN2 copies; and SMA IV patients normally have at least four of them. However, the correlation between symptom severity and SMN2 copy number is not absolute, and there seem to exist other factors affecting the disease phenotype.[2]
+
+Spinal muscular atrophy is inherited in an autosomal recessive pattern, which means that the defective gene is located on an autosome. Two copies of the defective gene - one from each parent - are required to inherit the disorder: the parents may be carriers and not personally affected. SMA seems to appear de novo (i.e., without any hereditary causes) in around 2-4% of cases.
+
+Spinal muscular atrophy affects individuals of all races, unlike other well known autosomal recessive disorders, such as sickle cell disease and cystic fibrosis, which have significant differences in occurrence rate among races. The overall incidence of SMA, of all types and across all ethnic groups, is in the range of 1 per 10,000 individuals; the gene frequency is around 1:100, therefore, approximately one in 50 persons are carriers.[3][4] There are no known health consequences of being a carrier. A person may learn carrier status only if one's child is affected by SMA or by having the SMN1 gene sequenced.
+
+Finally, there are reports of occurrence of both SMA type I and SMA type II among siblings. Scientific explanation of this phenomenon (intrafamilial variability) has been advanced by Enrico Parano, an Italian researcher of the CNR (The National Rersearch Council of Italy). He suggests that these cases might be due to additional de novo deletion of the SMN gene, not involving the NAIP gene (94).
+--
+3. Prognosis
+Generally, patients tend to deteriorate over time, but prognosis varies with the SMA type and disease progress which shows a great degree of individual variability.
+
+The majority of children diagnosed with SMA type 0/I do not reach the age of 4, recurrent respiratory problems being the primary cause of death.[29] With proper care, milder SMA type I cases (which account for approx. 10% of all SMA I cases) live into adulthood.[30]
+
+In SMA type II, the course of the disease is stable or slowly progressing and life expectancy is reduced compared to the healthy population. Death before the age of 20 is frequent, although many patients live to become parents and grandparents.
+
+SMA type III has near-normal life expectancy if standards of care are followed. Adult-onset SMA usually means only mobility impairment and does not affect life expectancy.
+--

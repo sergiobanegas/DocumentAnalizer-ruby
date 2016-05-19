@@ -1,0 +1,30 @@
+﻿WDOC1
+2015
+Cerebral venous sinus thrombosis
+--
+1. Introduction
+Cerebral venous sinus thrombosis (CVST) is the presence of acute thrombosis (a blood clot) in the dural venous sinuses, which drain blood from the brain. Symptoms may include headache, abnormal vision, any of the symptoms of stroke such as weakness of the face and limbs on one side of the body, and seizures. The diagnosis is usually by computed tomography (CT/CAT scan) or magnetic resonance imaging (MRI) employing radiocontrast to demonstrate obstruction of the venous sinuses by thrombus.[1]
+
+Treatment is with anticoagulants (medication that suppresses blood clotting), and rarely thrombolysis (enzymatic destruction of the blood clot). Given that there is usually an underlying cause for the disease, tests may be performed to look for these. The disease may be complicated by raised intracranial pressure, which may warrant surgical intervention such as the placement of a shunt.[1] There are several other terms for the condition, such as cerebral venous and sinus thrombosis, (superior) sagittal sinus thrombosis, dural sinus thrombosis and intracranial venous thrombosis as well as the older term cerebral thrombophlebitis.
+--
+2. Signs and symptoms
+Nine in ten people with sinus thrombosis have a headache; this tends to worsen over the period of several days, but may also develop suddenly (thunderclap headache).[1] The headache may be the only symptom of cerebral venous sinus thrombosis.[2] Many patients have symptoms of stroke: inability to move one or more limbs, weakness on one side of the face or difficulty speaking. This does not necessarily affect one side of the body as in the more common "arterial" stroke.[1]
+
+40% of all patients have seizures, although it is more common still in women who develop sinus thrombosis peripartum (in the period before and after giving birth).[3] These are mostly seizures affecting only one part of the body and unilateral (occurring on one side), but occasionally the seizures are generalised and rarely they lead to status epilepticus (persistent or recurrent seizure activity for a long period of time).[1]
+
+In the elderly, many of the aforementioned symptoms may not occur. Common symptoms in the elderly with this condition are otherwise unexplained changes in mental status and a depressed level of consciousness.[4]
+
+The pressure around the brain may rise, causing papilledema (swelling of the optic disc) which may be experienced as visual obscurations. In severely raised intracranial pressure, the level of consciousness is decreased, the blood pressure rises, the heart rate falls and the patient assumes an abnormal posture.
+--
+3. Diagnosis
+The diagnosis may be suspected on the basis of the symptoms, for example the combination of headache, signs of raised intracranial pressure and focal neurological abnormalities, or when alternative causes of headache and neurological abnormalities, such as a subarachnoid hemorrhage, have been excluded.
+--
+4. Treatment
+Various studies have investigated the use of anticoagulation to suppress blood clot formation in cerebral venous sinus thrombosis. Before these trials had been conducted, there had been a concern that small areas of hemorrhage in the brain would bleed further as a result of treatment; the studies showed that this concern was unfounded.[9] Clinical practice guidelines now recommend heparin or low molecular weight heparin in the initial treatment, followed by warfarin, provided there are no other bleeding risks that would make these treatments unsuitable.[3][10][11] Some experts discourage the use of anticoagulation if there is extensive hemorrhage; in that case, they recommend repeating the imaging after 7–10 days. If the hemorrhage has decreased in size, anticoagulants are started, while no anticoagulants are given if there is no reduction.[12]
+
+The duration of warfarin treatment depends on the circumstances and underlying causes of the condition. If the thrombosis developed under temporary circumstances (e.g. pregnancy), three months are regarded as sufficient. If the condition was unprovoked but there are no clear causes or a "mild" form of thrombophilia, 6 to 12 months is advised. If there is a severe underlying thrombosis disorder, warfarin treatment may need to continue indefinitely.[3]
+
+Thrombolysis (removal of the blood clot with "clot buster" medication) has been described, either systemically by injection into a vein or directly into the clot during angiography. The 2006 European Federation of Neurological Societies guideline recommends that thrombolysis is only used in patients who deteriorate despite adequate treatment, and other causes of deterioration have been eliminated. It is unclear which drug and which mode of administration is the most effective. Bleeding into the brain and in other sites of the body is a major concern in the use of thrombolysis.[3] American guidelines make no recommendation with regards to thrombolysis, stating that more research is needed.[11]
+
+Raised intracranial pressure, if severe or threatening vision, may require therapeutic lumbar puncture (removal of excessive cerebrospinal fluid), medication (acetazolamide), or neurosurgical treatment (optic nerve sheath fenestration or shunting).[1] In certain situations, anticonvulsants may be used to try to prevent seizures.[3] These situations include focal neurological problems (e.g. inability to move a limb) and focal changes of the brain tissue on CT or MRI scan.[3] Evidence to support a benefit; however, is lacking.[13]
+--
