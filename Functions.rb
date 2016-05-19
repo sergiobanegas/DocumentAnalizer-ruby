@@ -3,7 +3,7 @@ class Functions
   end
 
   def clustersIncludeDocument(clusters, document)
-    for cluster in clusters
+    clusters.each do |cluster|
       if cluster.hasDocument?(document)
         return true
       end
@@ -28,14 +28,14 @@ class Functions
 
   def firstLetters (words, acronym)
     firsts=""
-    for word in words
+    words.each do |word|
       if word[0].chr=="["
         word=word[1..word.length-1]
       end
       if (word.include? "-")
         splittedWords=word.split("-")
         if splittedWords[0].chr==splittedWords[0].chr.upcase#si empieza por mayuscula se agrega
-          for splittedWord in splittedWords
+          splittedWords.each do |splittedWord|
             if (acronym.include? splittedWord)&&(isAcronym?(splittedWord))
               firsts+=splittedWord
             elsif splittedWord.chr==splittedWord.chr.upcase
@@ -43,7 +43,7 @@ class Functions
             end
           end
         else
-          for splittedWord in splittedWords
+          splittedWords.each do |splittedWord|
             firsts+=splittedWord.chr
           end
         end
@@ -87,21 +87,6 @@ class Functions
 
   def letter?(lookAhead)
     lookAhead =~ /[[:alpha:]]/
-  end
-
-  def is_integer_and_invalid?(word)
-    number=0
-    for i in 0..word.length-1
-      if ((word[i].chr.to_i.to_s)==(word[i].chr))||(invalidChar?(word[i].chr))
-        number+=1
-      end
-    end
-    return number==word.length
-  end
-
-  def invalidChar?(char)
-    char.gsub(/[().;,:%º?]/, '')
-    return (char=="(")||(char==")")||(char==",")||(char==".")||(char==":")||(char==";")||(char=="%")||(char==";")
   end
 
   def isRomanNumeral? (word)

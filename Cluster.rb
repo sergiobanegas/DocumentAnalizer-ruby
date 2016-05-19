@@ -5,65 +5,81 @@ class Cluster
   include Comparable
   def initialize (title, documents)
     @title, @documents = title, documents
+    @expandedTitle=expandedTitle(title)
     @functions=Functions.new
   end
 
-  attr_accessor :title, :documents
-
   def <=>(cluster)
-    cluster.documents.length <=> @documents.length
+    cluster.numberOfDocuments <=> @documents.length
   end
 
   def hasDocument?(document)
     @documents.include? document
   end
 
-  def removeDocument(document)
-    @documents.delete(document)
-  end
-
   def numberOfDocuments
     @documents.length
   end
 
-  def deleteCategorized(groups, clusters)
-    validDocuments=[]
+  def biggerThanTwo?
+    @documents.length>2
+  end
+
+  def getRepresentativeAcronyms
+    acronyms=[]
+    counts = Hash.new 0
     @documents.each do |document|
-      if @functions.clustersIncludeDocument(groups,document)
-        removeDocument(document)
+      acronyms=document.addAcronyms(acronyms)
+    end
+    acronyms.each do |acronym|
+      counts[acronym] += 1
+    end
+    counts = Hash[counts.sort_by{|k, v| v}.reverse]
+    representativeAcronyms=[]
+    representativeAcronyms.push("Grupo #{@expandedTitle}:")
+    counts.each do |key, value|
+      if value > (@documents.length.to_f/2).ceil
+        representativeAcronyms.push("#{key} en #{value} documentos")
       else
-        validDocuments.push(document)
+        break
       end
     end
-    return validDocuments
-  end
-
-  def sameYearDocuments?
-    sameYear=true
-    year=@documents[0].year
-    for document in @documents
-      if (!document.publishedInYear?(year))
-        sameYear=false
-      end
+    if representativeAcronyms.length == 1
+      representativeAcronyms.push("Ningún acrónimo representativo")
     end
-    return sameYear
+    representativeAcronyms.push("--------------------------------------")
+    return representativeAcronyms
   end
 
-  def aSingleDocument?
-    return @documents.length==1
+  def uncategorizedDocuments(groups)
+    @documents.select{|document| !@functions.clustersIncludeDocument(groups,document) }
+  end
+
+  def setDocuments(documents)
+    @documents=documents
   end
 
   def to_s
-    expandedFormTitle=@documents[0].getExpandedForm(@title)
-    if expandedFormTitle==""
-      expandedFormTitle=@title
-    end
-    toString="Category: #{expandedFormTitle}\n"
-    for document in @documents
+    toString="Category: #{@expandedTitle}\n"
+    @documents.each do |document|
       toString+=document.getIdAndTitle+"\n"
     end
     toString+="------------------------------------------------\n"
     return toString
+  end
+
+  def abstract
+    "#{@expandedTitle}: #{@documents.length} documentos"
+  end
+
+  private
+
+  def expandedTitle(title)
+    title=@documents[0].getExpandedForm(@title)
+    if (!title)
+      title=@title
+    end
+    return title
   end
 
 end

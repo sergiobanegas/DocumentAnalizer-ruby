@@ -5,22 +5,20 @@ class Document
   def initialize (id, year, title, sections)
     @id, @year, @title, @sections= id, year, title, sections
     @functions=Functions.new
-    @acronyms=acronymList
     @lcs = LCS.new
+    @acronyms=acronymList
   end
 
-  attr_reader :year, :title, :sections
-
-  def <=>(document)
-    @title <=> document.title
+  def addAcronymsHash(acronyms)
+    acronyms.merge(@acronyms)
   end
 
-  def getAcronymsHash
-    Hash[@acronyms.collect { |acronym| [acronym, getExpandedForm(acronym)] }]
+  def addAcronyms(acronyms)
+    acronyms.concat @acronyms.keys
   end
 
   def getIdAndTitle
-    "Id: #{@id}, title: #{@title}"
+    "#{@id} - #{@title}"
   end
 
   def getTitleAndId
@@ -40,39 +38,36 @@ class Document
   end
 
   def containsAcronym?(acronym)
-    (Array(@acronyms)).include? acronym
+    (@acronyms.keys).include? acronym
   end
 
   def getExpandedFromHash(hash)
-    expandedForms=[]
-    @acronyms.each do |acronym|
-      expandedForms.push(acronym+" = "+hash[acronym]);
-    end
-    return expandedForms
+    @acronyms.keys.collect{|acronym| acronym+" = "+hash[acronym]}
   end
 
-  def getAcronymAndTimesRepeated
-    acronymsAndTimes=[]
-    exists=true
-    for acronym in @acronyms
-      acronymsAndTimes.push("#{acronym}: #{timesRepeated(acronym).to_s} times")
-    end
-    return acronymsAndTimes
+  def getAcronymsAndTimesRepeated
+    @acronyms.keys.collect{|acronym| "#{acronym}: #{timesRepeated(acronym)} veces"}
   end
 
   def hasNoAcronyms?
     @acronyms.length==0
   end
 
+  def getExpandedForm(acronym)
+    @acronyms[acronym]
+  end
+
   def to_s
     "--------------------------------------\nTitle: #{@title} (#{@year})\n"
   end
 
-  def getExpandedForm(acronym)
+  private
+
+  def findExpandedForm(acronym)
     possibleExpandedForm=""
     expandedFormList=[]
     sectionNumber=0
-    for section in @sections
+    @sections.each do |section|
       sectionWords=section.split(" ")
       sectionNumber+=1
       sectionWordsHash = Hash[sectionWords.map.with_index.to_a]
@@ -80,8 +75,8 @@ class Document
       acronymParenthesis="("+acronym+")"
       if (sectionWordsHash.keys.grep /(#{acronymParenthesis}.*)/)
         acronymsContained=(sectionWordsHash.keys.grep /(#{acronymParenthesis}.*)/)
-        for acronymContained in acronymsContained
-          if (acronymContained.include? "("+acronym)&&(acronymContained.include? "("+acronym)
+        acronymsContained.each do |acronymContained|
+          if (acronymContained.include? "("+acronym)&&(acronymContained.include? acronym+")")
             index=sectionWordsHash[acronymContained]
             break
           end
@@ -163,17 +158,11 @@ class Document
     end
   end
 
-  private
-
   def timesRepeated(acronym)
     times=0
-    for section in @sections
+    @sections.each do |section|
       words=section.split(" ")
-      for word in words
-        if word.gsub(/[().;,]/, '')==acronym
-          times+=1
-        end
-      end
+      words.map{|word| times+=1 if word.gsub(/[().;,]/, '')==acronym}.compact
     end
     return times
   end
@@ -189,9 +178,9 @@ class Document
 
   def acronymList
     acronyms = Array.new
-    for section in @sections
+    @sections.each do |section|
       words = section.split(" ")
-      for word in words
+      words.each do |word|
         if word[word.length-1]==","||word[word.length-1]=="."||word[word.length-1]=="]"||word[word.length-1]==":"||word[word.length-1]==";"
           word=word[0..word.length-2]
         end
@@ -200,7 +189,7 @@ class Document
         end
       end
     end
-    return acronyms.uniq
+    return Hash[acronyms.uniq.collect { |acronym| [acronym, findExpandedForm(acronym)] }]
   end
-  
+
 end

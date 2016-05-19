@@ -6,15 +6,15 @@ class Article < Document
     @magazine=magazine
   end
 
-  attr_reader :magazine
-
-  def publishedInMagazine?(magazine)
-    @magazine.upcase.include? magazine
+  def publishedInMagazineAndContainsAcronym(magazine, acronym)
+    if (containsAcronym?(acronym) &&  (@magazine.upcase.include? magazine))
+      return @title
+    end
   end
 
   def to_s
-    toString=super+"Abstract: #{abstract(sections[0])}\nSection number: #{(sections.length-1).to_s}\nSections:\n"
-    for section in (sections.drop(1))
+    toString=super+"Abstract: #{abstract(@sections[0])}\nSection number: #{@sections.length-1}\nSections:\n"
+    @sections.drop(1).each do |section|
       toString+=(section.split("\n")[0])+"\n"
     end
     return toString

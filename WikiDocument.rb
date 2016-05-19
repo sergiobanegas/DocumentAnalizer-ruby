@@ -6,9 +6,9 @@ class WikiDocument < Document
   end
 
   def to_s
-    toString= super+"Introduction: #{abstract(sections[0].split("\n")[1])}\nSection number: #{(sections.length-1).to_s}\nSections\n"
-    for i in (sections.drop(1))
-      toString+=(i.split("\n")[0])+"\n"
+    toString= super+"Introduction: #{abstract(@sections[0].split("\n")[1])}\nSection number: #{(@sections.length-1)}\nSections\n"
+    @sections.drop(1).each do |section|
+      toString+=(section.split("\n")[0])+"\n"
     end
     return toString
   end

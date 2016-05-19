@@ -6,79 +6,64 @@ module Main
   answer=-1
   while (answer!=0)
     puts "------------------------------------------------------------------------------------------------------------------"
-    puts "1- Mostrar los títulos de los documentos ordenados alfabéticamente y publicados en un año dado."
-    puts "2- Mostrar el listado de revistas en las que se han publicado los artículos científicos de toda la colección."
-    puts "3- Dado un acrónimo, buscarlo en los diferentes documentos y mostrar los títulos de aquellos que contengan el acrónimo."
-    puts "4- Dado el nombre de una revista y un acrónimo, mostrar los títulos de los artículos publicados en dicha revista que contengan el acrónimo."
-    puts "5- Dado un año de publicación, mostrar para cada documento publicado en ese año el listado de acrónimos que contiene acompañados de sus formas expandidas."
-    puts "6- Dado un identificador de documento, mostrar un listado de los acrónimos que contiene, acompañado del número de veces que aparece cada acrónimo en el documento."
-    puts "7- Mostrar los títulos e identificador de todos aquellos documentos que no contengan ningún acrónimo."
-    puts "8- Dado un acrónimo, mostrar información de todos los documentos que aparezcan en el acrónimo."
-    puts "9- Tratar de agrupar los documentos que se refieran a la misma enfermedad o a la misma temática."
-    puts "10- Calcular ciertas estadísticas relacionadas con los grupos de documentos similares."
-    puts "0- Salir del menú"
+    puts "1- Dado un acrónimo, buscarlo en los diferentes documentos y mostrar los documentos que contengan el acrónimo."
+    puts "2- Dado el nombre de una revista y un acrónimo, mostrar los títulos de los artículos publicados en dicha revista que contengan el acrónimo."
+    puts "3- Dado un año de publicación, mostrar para cada documento publicado en ese año el listado de acrónimos que contiene acompañados de sus formas expandidas."
+    puts "4- Dado un identificador de documento, mostrar un listado de los acrónimos que contiene, acompañado del número de veces que aparece cada acrónimo en el documento."
+    puts "5- Mostrar los títulos e identificador de todos aquellos documentos que no contengan ningún acrónimo."
+    puts "6- Tratar de agrupar los documentos que se refieran a la misma enfermedad o a la misma temática."
+    puts "7- Para cada grupo de documentos similares, mostrar los acrónimos más representativos de un grupo."
+    puts "8- Mostrar los diferentes grupos de documentos similares, ordenados de acuerdo a su tamaño."
+    puts "9- Mostrar aquellos grupos cuyo tamaño sea superior a dos."
+    puts "0- Salir del menú."
     puts "------------------------------------------------------------------------------------------------------------------"
     answer=(gets.chomp).to_i
     case answer
     when 0
       puts "¡Hasta pronto!"
     when 1
-      puts "Por favor, introduce el año: "
-      year=gets.chomp
-      puts "------------------------------------------------------------------------------------------------------------------"
-      titles=e.exercise1(year)
-      if titles.length>0
-        puts titles
-      else
-        puts "Ningún documento publicado en #{year}"
-      end
-    when 2
-      puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise2
-    when 3
       puts "Por favor, introduce un acrónimo"
       acronym=gets.upcase.chomp
       puts "------------------------------------------------------------------------------------------------------------------"
-      titles=e.exercise3(acronym)
-      if titles.length>0
-        puts titles
+      documents=e.exercise1(acronym)
+      if documents.length>0
+        puts documents
       else
         puts "Ningún documento contiene el acrónimo #{acronym}"
       end
-    when 4
+    when 2
       puts "Introduce el nombre de la revista"
       magazine=gets.upcase.chomp
       puts "Introduce un acrónimo"
       acronym=gets.upcase.chomp
       puts "------------------------------------------------------------------------------------------------------------------"
-      titles=e.exercise4(magazine,acronym)
+      titles=e.exercise2(magazine,acronym)
       if titles.length>0
         puts titles
       else
         puts "No hay ningún artículo que haya sido publicado en #{magazine} y/o contenga el acrónimo #{acronym}"
       end
-    when 5
+    when 3
       puts "Por favor, introduce un año"
       year=gets.chomp
       puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise5(year)
-    when 6
+      puts e.exercise3(year)
+    when 4
       puts "Introduce un identificador de documento"
       id=gets.upcase.chomp
       puts "------------------------------------------------------------------------------------------------------------------"
-      puts e.exercise6(id)
+      puts e.exercise4(id)
+    when 5
+      puts e.exercise5
+    when 6
+      puts "------------------------------------------------------------------------------------------------------------------"
+      puts e.exercise6
     when 7
+      puts "------------------------------------------------------------------------------------------------------------------"
       puts e.exercise7
     when 8
-      puts "Por favor, introduce un acrónimo"
-      acronym=gets.upcase.chomp
       puts "------------------------------------------------------------------------------------------------------------------"
-      documents=e.exercise8(acronym)
-      if documents.length>1
-        puts documents
-      else
-        puts "No hay ningún documento que contenga el acrónimo #{acronym}"
-      end
+      puts e.exercise8
     when 9
       puts "------------------------------------------------------------------------------------------------------------------"
       puts e.exercise9
@@ -89,5 +74,5 @@ module Main
       puts "Introduce un número válido"
     end
   end
-  
+
 end
