@@ -30,7 +30,7 @@ class Exercises
         end
       end
     end
-    if (expandedForms)
+    if (expandedForms.length>0)
       return expandedForms
     else
       return "No hay ningún documento publicado en #{year}"

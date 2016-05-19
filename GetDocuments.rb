@@ -91,6 +91,7 @@ class GetDocuments
           end
         end
       end
+      lines[0].slice!(0)
       wikiDocuments.push(WikiDocument.new(lines[0], lines[1], lines[2], sections))
     end
     @wikiDocumentsList=wikiDocuments

@@ -34,7 +34,7 @@ class Document
   end
 
   def hasId?(id)
-    @id.include? id
+    @id==id
   end
 
   def containsAcronym?(acronym)
